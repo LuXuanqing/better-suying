@@ -1,9 +1,19 @@
 prepend-rules:
   - DOMAIN,test.com,DIRECT # rules最前面增加一个规则
 
+prepend-proxy-groups:
+    - name: auto # 建立新策略组
+      type: url-test
+      url: "http://www.gstatic.com/generate_204"
+      interval: 300
+      proxies:
+        - DIRECT
+
 commands:
   - rules.-1- # 删除MATCH,Others
   # Proxy组改为url-test
-  - proxy-groups.Proxy.type=url-test
-  - proxy-groups.Proxy.url=http://www.gstatic.com/generate_204
-  - proxy-groups.Proxy.interval=600
+  # - proxy-groups.Proxy.type=url-test
+  # - proxy-groups.Proxy.url=http://www.gstatic.com/generate_204
+  # - proxy-groups.Proxy.interval=600
+  - proxy-groups.auto.proxies=[]proxyNames|(?<!Azure)\|x # 除Azure以外的所有服务器，Azure服务器名称以“前面不是Azure的|x”进行匹配
+  - proxy-groups.Proxy.proxies.0+auto
