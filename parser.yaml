@@ -1,2 +1,9 @@
 prepend-rules:
   - DOMAIN,test.com,DIRECT # rules最前面增加一个规则
+
+commands:
+  - rules.-1- # 删除MATCH,Others
+  # Proxy组改为url-test
+  - proxy-groups.Proxy.type=url-test
+  - proxy-groups.Proxy.url=http://www.gstatic.com/generate_204
+  - proxy-groups.Proxy.interval=600
