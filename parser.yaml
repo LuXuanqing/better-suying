@@ -1,0 +1,2 @@
+prepend-rules:
+  - DOMAIN,test.com,DIRECT # rules最前面增加一个规则
