@@ -15,5 +15,5 @@ commands:
   # - proxy-groups.Proxy.type=url-test
   # - proxy-groups.Proxy.url=http://www.gstatic.com/generate_204
   # - proxy-groups.Proxy.interval=600
-  - proxy-groups.auto.proxies=[]proxyNames|(?<!Azure)\|x # 除Azure以外的所有服务器，Azure服务器名称以“前面不是Azure的|x”进行匹配
+  - proxy-groups.auto.proxies=[]proxyNames|(?<!Azure)\|x # 除Azure以外的所有服务器，Azure服务器名称以前面不是“Azure”的“|x”进行匹配
   - proxy-groups.Proxy.proxies.0+auto
