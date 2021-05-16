@@ -1,0 +1,3 @@
+prepend-rules:
+  # qq docs
+  - DOMAIN-KEYWORD,docs.qq,Proxy 
